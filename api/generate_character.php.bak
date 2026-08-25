@@ -1,0 +1,48 @@
+<?php
+require_once __DIR__ . '/../config/env.php';
+
+$hfKey = getenv('HF_API_KEY');
+if (!$hfKey) {
+    http_response_code(500);
+    die(json_encode(['error' => 'Missing HF_API_KEY']));
+}
+
+$prompt = "A simple, friendly, hand-drawn cartoon character in the style of a folklore storyteller, warm colors, clean lines, expressive but simple face, front-facing, centered, plain neutral background, no text, no watermark";
+
+$url = "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-Krea-dev";
+
+$payload = json_encode(['inputs' => $prompt]);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Authorization: Bearer ' . $hfKey,
+    'Content-Type: application/json'
+]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+
+$response = curl_exec($ch);
+$curlError = curl_error($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+
+if ($response === false) {
+    http_response_code(500);
+    die(json_encode(['error' => 'cURL failed', 'curl_error' => $curlError]));
+}
+
+if ($httpCode !== 200 || !str_starts_with((string)$contentType, 'image/')) {
+    http_response_code($httpCode ?: 500);
+    die(json_encode(['error' => 'Hugging Face API error', 'http_code' => $httpCode, 'details' => $response]));
+}
+
+$ext = str_contains($contentType, 'png') ? 'png' : 'jpg';
+$filename = 'character_' . time() . '.' . $ext;
+$filepath = __DIR__ . '/../assets/generated/' . $filename;
+
+file_put_contents($filepath, $response);
+
+header('Content-Type: application/json');
+echo json_encode(['success' => true, 'filename' => $filename, 'path' => 'assets/generated/' . $filename]);
