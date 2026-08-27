@@ -1,4 +1,7 @@
 <?php
+set_time_limit(90);
+ini_set('max_execution_time', 90);
+
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../api/lib/roast_lib.php';
 require_once __DIR__ . '/../api/lib/character_lib.php';
@@ -29,7 +32,7 @@ $stmt->execute();
 	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-	<p class="eyebrow" lang="bn">You chose: <? htmlspecialchars($choiceLabel) ?></p>
+	<p class="eyebrow" lang="bn">You chose: <?= htmlspecialchars($choiceLabel) ?></p>
 	<h1>Buckle your seatbelt, you are about to fly!</h1>
 
 	<div class="roast-scene">

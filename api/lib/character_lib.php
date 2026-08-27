@@ -7,7 +7,7 @@ function generateCharacterImage() {
 
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 75);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
     $response = curl_exec($ch);
