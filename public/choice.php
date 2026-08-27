@@ -13,8 +13,8 @@
   <p>Whatever you choose, be prepare for anything.</p>
 
   <div class="choice-grid">
-	<a class="choice-card" lang="bn" href="roast.php?choice=A">🍕 চোদ </a>
-	<a class="choice-card" lang="bn" href="roast.php?choice=B">🚫 চোদনা</a>
+	<a class="choice-card" lang="bn" href="momin.php?choice=A">🍕 চোদ </a>
+	<a class="choice-card" lang="bn" href="papi.php?choice=B">🚫 চোদনা</a>
   </div>
 
   <script src="../assets/js/cursor-follow.js"></script>
