@@ -1,0 +1,1 @@
+Drop video files here — .mp4, .webm are all fine. Keep clips reasonably short/compressed where possible — very large video files make the repository slow to download for everyone. See the parent folder's README for upload instructions.
