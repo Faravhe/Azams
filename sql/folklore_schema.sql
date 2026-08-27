@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS folklore_stories (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	title VARCHAR(255) NOT NULL,
+	culture VARCHAR(100) NOT NULL,
+	total_parts INT NOT NULL,
+	moral TEXT NOT NUll,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS folklore_parts (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	story_id INT NOT NULL,
+	part_number INT NOT NULL,
+	content TEXT NOT NULL,
+	FOREIGN KEY (story_id) REFERENCES folklore_stories(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS user_story_progress (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	session_name VARCHAR(50) NOT NULL,
+	story_id INT NOT NULL,
+	current_part INT NOT NULL DEFAULT 0,
+	completed BOOLEAN NOT NULL DEFAULT FALSE,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, UNIQUE KEY unique_session_story (session_name, story_id), FOREIGN KEY (story_id) REFERENCES folklore_stories(id) ON DELETE CASCADE
+);
