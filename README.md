@@ -1,5 +1,12 @@
 # Azams
 
+## 🎬 App Preview
+
+**[▶ WATCH THE FULL APP PREVIEW ON YOUTUBE](https://youtu.be/N1QYrtpKUqA)**
+
+[![Azams App Preview](https://img.youtube.com/vi/N1QYrtpKUqA/hqdefault.jpg)](https://youtu.be/N1QYrtpKUqA)
+
+---
 A roast/folklore web app: the visitor picks a category (MOMIN or PAPI), gets roasted by an AI regardless of choice, and — on the PAPI path — is shown an ongoing folklore story that continues across visits.
 
 This is a closed-contributor project. **All pull requests are reviewed by the project owner before merge.** This document exists so review is fast and consistent, not a formality — read it before opening a PR.
