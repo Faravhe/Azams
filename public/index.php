@@ -13,6 +13,7 @@
 	<a class="landing-cta" href="choice.php">Enter if you dare</a>
 
 	<script src="../assets/js/cursor-follow.js"></script>
+	<script src="../assets/js/loading-overlay.js"></script>
 </body>
 
 </html>

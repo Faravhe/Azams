@@ -16,7 +16,7 @@ if (!isset($_COOKIE['session_name'])) {
 </head>
 <body>
     <p class="eyebrow" lang="bn">MOMIN</p>
-    <h1>Three quests. Look closely — your brain is about to lie to you.</h1>
+    <h1>Momin Bhaya,  Look closely — your brain is about to lie to you.</h1>
     <p>Optical illusions aren't magic, they're your brain taking shortcuts. Look at each one before reading the explanation.</p>
 
     <div class="quest-panel">
@@ -89,5 +89,6 @@ if (!isset($_COOKIE['session_name'])) {
     </div>
 
     <script src="../assets/js/cursor-follow.js"></script>
+    <script src="../assets/js/loading-overlay.js"></script>
 </body>
 </html>

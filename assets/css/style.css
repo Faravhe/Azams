@@ -197,7 +197,6 @@ p {
 }
 
 .quest-panel summary {
-  cursor: pointer;
   color: var(--color-ember);
   font-family: var(--font-mono);
   font-size: 13px;
@@ -256,4 +255,39 @@ p {
 
 .archive-audio-wrap {
   margin-top: 24px;
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-char-black);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 10000;
+}
+
+.loading-overlay.active {
+  display: flex;
+}
+
+.loading-overlay img {
+  width: 64px;
+  height: 64px;
+  animation: spin-loading 1s linear infinite;
+}
+
+@keyframes spin-loading {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-overlay p {
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ember);
 }

@@ -94,5 +94,6 @@ $upsertStmt->execute();
     </div>
 
     <script src="../assets/js/cursor-follow.js"></script>
+    <script src="../assets/js/loading-overlay.js"></script>
 </body>
 </html>
